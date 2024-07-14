@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class QuestionBank {
     private List<Question> questions;
@@ -121,8 +122,10 @@ public class QuestionBank {
         questions.add(new Question("Sports", "Which Zambian football club is based in Ndola?", new String[]{"ZESCO United", "Zanaco FC", "Power Dynamos", "Nkana FC"}, "ZESCO United"));
     }
 
-    public List<Question> getQuestions() {
-        return questions;
+    public List<Question> getQuestions(String category) {
+        return questions.stream()
+                .filter(question -> question.getCategory().equalsIgnoreCase(category))
+                .collect(Collectors.toList());
     }
-}
 
+}

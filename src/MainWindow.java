@@ -11,6 +11,7 @@ public class MainWindow extends HomeWindow implements ActionListener {
     JPanel infoPanel = new JPanel(new BorderLayout());
     JPanel controlsPanel = new JPanel();
 
+
     public MainWindow(){
         super("Home");
         //add the greeting text into the center box using the greeting box
