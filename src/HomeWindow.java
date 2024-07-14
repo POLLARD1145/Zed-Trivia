@@ -2,13 +2,13 @@ import javax.swing.*;
 import java.awt.*;
 
 public class HomeWindow extends JFrame {
-    protected JPanel mainBox = new JPanel();
+    protected JPanel mainBox = new JPanel(new CardLayout());
     protected JPanel sidePanel = new JPanel(); // left side to have the info button
     protected JPanel rightSidePanel = new JPanel();
-    protected JPanel topNavBar = new JPanel(); // navigation bar to contain the timer
-    protected JPanel bottomControlBox = new JPanel(); // to contain the control
+    protected JPanel topNavBar = new JPanel(new CardLayout()); // navigation bar to contain the timer
+    protected JPanel bottomControlBox = new JPanel(new CardLayout()); // to contain the control
     protected String pageName;  // name of the current page being accessed
-    JButton someButon = new JButton("Info");
+
 
     public HomeWindow(String pageName) {
         // Initialize the mainFrame and its attributes
@@ -24,7 +24,6 @@ public class HomeWindow extends JFrame {
         // Add the bottom box to contain the controls
         add(bottomControlBox, BorderLayout.SOUTH);
         bottomControlBox.setPreferredSize(new Dimension(1200, 80));
-        bottomControlBox.add(someButon, BorderLayout.WEST);
 
         // Add the left side pane
         add(sidePanel, BorderLayout.WEST);
