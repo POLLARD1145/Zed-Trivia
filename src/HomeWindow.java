@@ -63,4 +63,9 @@ public class HomeWindow extends JFrame {
     public JPanel getBottomControlBox() {
         return bottomControlBox;
     }
+
+    public void setPageName(String pageName) {
+        this.pageName = pageName;
+        setTitle(pageName+" - Zambia Trivia");
+    }
 }

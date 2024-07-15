@@ -23,6 +23,9 @@ public class Question {
     public String[] getOptions() {
         return options;
     }
+    public String getAnswer() {
+        return this.correctAnswer;
+    }
 
     public String getCorrectAnswer() {
         return correctAnswer;

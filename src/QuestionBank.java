@@ -1,13 +1,24 @@
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
 
 public class QuestionBank {
     private List<Question> questions;
 
     public QuestionBank() {
         questions = new ArrayList<>();
+        questions.add(new Question("Sports", "What sport does Zambian athlete Kabange Mupopo compete in?", new String[]{"Athletics", "Boxing", "Football", "Swimming"}, "Athletics"));
+        questions.add(new Question("Sports", "Which Zambian football club is based in Ndola?", new String[]{"ZESCO United", "Zanaco FC", "Power Dynamos", "Nkana FC"}, "ZESCO United"));
         populateQuestions();
+    }
+
+    public List<Question> getQuestions(String category) {
+        List<Question> categoryQuestions = new ArrayList<>();
+        for (Question question : questions) {
+            if (question.getCategory().equalsIgnoreCase(category)) {
+                categoryQuestions.add(question);
+            }
+        }
+        return categoryQuestions;
     }
 
     private void populateQuestions() {
@@ -121,11 +132,5 @@ public class QuestionBank {
         questions.add(new Question("Sports", "What sport does Zambian athlete Kabange Mupopo compete in?", new String[]{"Athletics", "Boxing", "Football", "Swimming"}, "Athletics"));
         questions.add(new Question("Sports", "Which Zambian football club is based in Ndola?", new String[]{"ZESCO United", "Zanaco FC", "Power Dynamos", "Nkana FC"}, "ZESCO United"));
     }
-
-    public List<Question> getQuestions(String category) {
-        return questions.stream()
-                .filter(question -> question.getCategory().equalsIgnoreCase(category))
-                .collect(Collectors.toList());
-    }
-
 }
+
