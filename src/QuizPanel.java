@@ -21,7 +21,7 @@ public class QuizPanel extends JPanel {
     public QuizPanel(JFrame frame, String category) {
         this.parentFrame = frame;
         this.category = category;
-        this.questions = getQuestionsForCategory(category); // Get questions based on category
+        this.questions = getQuestionsForCategory(category);
 
         setLayout(new BorderLayout());
 
@@ -104,7 +104,7 @@ public class QuizPanel extends JPanel {
     }
 
     private void startTimer() {
-        timer = new Timer(1000, new ActionListener() {
+        timer = new Timer(100, new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 timeRemaining--;
