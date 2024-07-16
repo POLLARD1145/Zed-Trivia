@@ -131,6 +131,29 @@ public class QuestionBank {
         questions.add(new Question("Sports", "Which Zambian swimmer represented the country at the 2016 Olympics?", new String[]{"Tilka Paljk", "Roy Allan Burch", "Jade Howard", "Zane Jordan"}, "Tilka Paljk"));
         questions.add(new Question("Sports", "What sport does Zambian athlete Kabange Mupopo compete in?", new String[]{"Athletics", "Boxing", "Football", "Swimming"}, "Athletics"));
         questions.add(new Question("Sports", "Which Zambian football club is based in Ndola?", new String[]{"ZESCO United", "Zanaco FC", "Power Dynamos", "Nkana FC"}, "ZESCO United"));
+
+        //add to the wildlife categoory
+        questions.add(new Question("Wildlife", "Which national park in Zambia is known for its large population of elephants?", new String[]{"Kafue National Park", "South Luangwa National Park", "Lower Zambezi National Park", "Liuwa Plain National Park"}, "South Luangwa National Park"));
+        questions.add(new Question("Wildlife", "What is the primary habitat of the African wild dog in Zambia?", new String[]{"Savannah", "Rainforest", "Desert", "Wetland"}, "Savannah"));
+        questions.add(new Question("Wildlife", "Which bird species is famous for its vibrant red feathers and is found in Zambia?", new String[]{"Southern Carmine Bee-eater", "African Grey Parrot", "Lilac-breasted Roller", "Malachite Kingfisher"}, "Southern Carmine Bee-eater"));
+        questions.add(new Question("Wildlife", "The Black Lechwe is a type of antelope found in which region of Zambia?", new String[]{"Bangweulu Swamps", "Victoria Falls", "Barotse Floodplain", "Zambezi River Basin"}, "Bangweulu Swamps"));
+        questions.add(new Question("Wildlife", "Which large cat species is commonly found in Kafue National Park?", new String[]{"Lion", "Cheetah", "Leopard", "Tiger"}, "Leopard"));
+        questions.add(new Question("Wildlife", "What is the scientific name of the Thornicroft's giraffe, an endemic species in Zambia?", new String[]{"Giraffa camelopardalis thornicrofti", "Giraffa camelopardalis reticulata", "Giraffa camelopardalis tippelskirchi", "Giraffa camelopardalis rothschildi"}, "Giraffa camelopardalis thornicrofti"));
+        questions.add(new Question("Wildlife", "Which river in Zambia is home to a significant population of hippos?", new String[]{"Luangwa River", "Kafue River", "Zambezi River", "Lunsemfwa River"}, "Luangwa River"));
+        questions.add(new Question("Wildlife", "What type of ecosystem can be found in the Liuwa Plain National Park?", new String[]{"Grassland", "Forest", "Desert", "Wetland"}, "Grassland"));
+        questions.add(new Question("Wildlife", "The Shoebill, a large stork-like bird, is primarily found in which area of Zambia?", new String[]{"Bangweulu Swamps", "Victoria Falls", "Kafue Flats", "Lake Kariba"}, "Bangweulu Swamps"));
+        questions.add(new Question("Wildlife", "Which primate species is native to the forests of Zambia?", new String[]{"Vervet Monkey", "Chimpanzee", "Colobus Monkey", "Baboon"}, "Chimpanzee"));
+        questions.add(new Question("Wildlife", "What is the main food source for the African Pitta, a bird species found in Zambia?", new String[]{"Insects", "Fruits", "Seeds", "Nectar"}, "Insects"));
+        questions.add(new Question("Wildlife", "Which butterfly species, known for its striking blue color, can be found in Zambia?", new String[]{"Blue Morpho", "Emperor Swallowtail", "Common Blue", "African Queen"}, "Emperor Swallowtail"));
+        questions.add(new Question("Wildlife", "What is the main reason for the migration of wildebeest in Zambia?", new String[]{"Search for water", "Predator avoidance", "Breeding", "Food availability"}, "Food availability"));
+        questions.add(new Question("Wildlife", "Which snake species, known for its potent venom, is found in Zambia?", new String[]{"Black Mamba", "Green Mamba", "King Cobra", "Puff Adder"}, "Black Mamba"));
+        questions.add(new Question("Wildlife", "The Puku antelope is commonly found in which Zambian national park?", new String[]{"South Luangwa National Park", "Kafue National Park", "Lower Zambezi National Park", "Kasanka National Park"}, "Kafue National Park"));
+        questions.add(new Question("Wildlife", "Which species of eagle is known for its presence along the Zambezi River?", new String[]{"Fish Eagle", "Crowned Eagle", "Martial Eagle", "Harpy Eagle"}, "Fish Eagle"));
+        questions.add(new Question("Wildlife", "What is the primary threat to the African elephant population in Zambia?", new String[]{"Poaching", "Habitat loss", "Disease", "Climate change"}, "Poaching"));
+        questions.add(new Question("Wildlife", "Which amphibian species, known for its loud calls, is native to Zambia?", new String[]{"African Bullfrog", "Rain Frog", "Tree Frog", "Dwarf Clawed Frog"}, "African Bullfrog"));
+        questions.add(new Question("Wildlife", "Which large herbivore is known to roam the plains of Zambia?", new String[]{"Cape Buffalo", "Rhinoceros", "Zebra", "Giraffe"}, "Cape Buffalo"));
+        questions.add(new Question("Wildlife", "What is the name of the bat species that forms large colonies in Kasanka National Park?", new String[]{"Straw-colored Fruit Bat", "Little Brown Bat", "Egyptian Fruit Bat", "Hammer-headed Bat"}, "Straw-colored Fruit Bat"));
+
     }
 }
 

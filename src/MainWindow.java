@@ -10,13 +10,15 @@ public class MainWindow extends HomeWindow implements ActionListener {
     Timer timer;
     int timeElapsed = 0;
     JLabel timerLabel = new JLabel("Time: 0s");
+    JLabel timeRemainingLabel = new JLabel("Time remaining: 01:45");
     QuestionBank questionBank = new QuestionBank();
+    int timeRemaining = 105; // 1 minute and 45 seconds
 
     public MainWindow() {
         super("Home");
 
         // Top Navbar
-        topNavBar.add(timerLabel, "Timer");
+        timerContainer.add(timeRemainingLabel, BorderLayout.EAST);
 
         // Home Page
         JPanel homePanel = new JPanel(new BorderLayout());
@@ -29,9 +31,7 @@ public class MainWindow extends HomeWindow implements ActionListener {
         mainBox.add(homePanel, "Home");
 
         // Add the info button to the side panel
-        JButton infoButton = new JButton("Info");
-        infoButton.addActionListener(this);
-        sidePanel.add(infoButton);
+        addButtonToBottomControlBox("Info");
 
         // Initial card display
         cardLayout.show(mainBox, "Home");
@@ -44,6 +44,12 @@ public class MainWindow extends HomeWindow implements ActionListener {
                 timerLabel.setText("Time: " + timeElapsed + "s");
             }
         });
+    }
+
+    public String formatTime(int seconds) {
+        int minutes = seconds / 60;
+        int secs = seconds % 60;
+        return String.format("%02d:%02d", minutes, secs);
     }
 
     private void goToInfoPage() {
@@ -67,7 +73,7 @@ public class MainWindow extends HomeWindow implements ActionListener {
         mainBox.add(infoPanel, "Information");
 
         // Update bottom controls
-        bottomControlBox.removeAll();
+        cornerButtonContainer.removeAll();
         addButtonToBottomControlBox("< Back");
 
         cardLayout.show(mainBox, "Information");
@@ -75,7 +81,7 @@ public class MainWindow extends HomeWindow implements ActionListener {
         infoPanel.repaint();
     }
 
-    private void goToCategoryPage() {
+    public void goToCategoryPage() {
         setPageName("Select a Category");
 
         JPanel categoryPanel = new JPanel(new BorderLayout());
@@ -85,7 +91,7 @@ public class MainWindow extends HomeWindow implements ActionListener {
         JPanel categories = new JPanel();
         categories.setLayout(new BoxLayout(categories, BoxLayout.Y_AXIS));
 
-        String[] categoryNames = {"Geography", "History", "Wildlife", "Culture", "Sports"};
+        String[] categoryNames = {"Geography", "History", "Economy", "Wildlife", "Culture", "Sports"};
         for (String name : categoryNames) {
             JButton categoryButton = new JButton(name);
             categoryButton.setAlignmentX(Component.CENTER_ALIGNMENT);
@@ -98,7 +104,7 @@ public class MainWindow extends HomeWindow implements ActionListener {
         mainBox.add(categoryPanel, "Category");
 
         // Update bottom controls
-        bottomControlBox.removeAll();
+        cornerButtonContainer.removeAll();
         addButtonToBottomControlBox("< Back");
 
         cardLayout.show(mainBox, "Category");
@@ -107,19 +113,25 @@ public class MainWindow extends HomeWindow implements ActionListener {
     }
 
     private void displayQuestionWindow(String category, List<Question> questions) {
+        this.cornerButtonContainer.removeAll();
         setPageName(category + " Questions");
 
-        QuestionWindow questionWindow = new QuestionWindow(category, questions);
+        QuestionWindow questionWindow = new QuestionWindow(category, questions, timeRemainingLabel, this);
         mainBox.add(questionWindow, "Question");
 
         // Update top navbar and start timer
-        topNavBar.removeAll();
-        topNavBar.add(timerLabel, "Timer");
+        timerContainer.removeAll();
+        timerContainer.add(timeRemainingLabel, BorderLayout.EAST);
         timer.start();
+
+        // Remove the back button from the bottom controls
+        cornerButtonContainer.removeAll();
+        cornerButtonContainer.revalidate();
+        cornerButtonContainer.repaint();
 
         // Update bottom controls
         bottomControlBox.removeAll();
-        questionWindow.addBottomControls(bottomControlBox);
+        questionWindow.addBottomControls();
 
         cardLayout.show(mainBox, "Question");
         questionWindow.revalidate();
@@ -129,9 +141,9 @@ public class MainWindow extends HomeWindow implements ActionListener {
     private void addButtonToBottomControlBox(String buttonText) {
         JButton button = new JButton(buttonText);
         button.addActionListener(this);
-        bottomControlBox.add(button, BorderLayout.WEST);
-        bottomControlBox.revalidate();
-        bottomControlBox.repaint();
+        cornerButtonContainer.add(button, BorderLayout.CENTER);
+        cornerButtonContainer.revalidate();
+        cornerButtonContainer.repaint();
     }
 
     @Override
@@ -141,8 +153,11 @@ public class MainWindow extends HomeWindow implements ActionListener {
             goToInfoPage();
         } else if (Objects.equals(buttonText, "< Back")) {
             setPageName("Home");
+            addButtonToBottomControlBox("Info");
             cardLayout.show(mainBox, "Home");
         } else if (Objects.equals(buttonText, "Play Now")) {
+            cornerButtonContainer.removeAll();
+            timerContainer.removeAll();
             goToCategoryPage();
         } else {
             List<Question> categoryQuestions = questionBank.getQuestions(buttonText);

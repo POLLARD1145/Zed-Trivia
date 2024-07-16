@@ -27,9 +27,6 @@ public class Question {
         return this.correctAnswer;
     }
 
-    public String getCorrectAnswer() {
-        return correctAnswer;
-    }
 
     @Override
     public String toString() {
